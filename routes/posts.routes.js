@@ -3,7 +3,7 @@ const Post = require("../models/Post.model");
 const User = require("../models/User.model");
 
 router.get("/", (req, res) => {
-	console.log(req.payload);
+	console.log(req);
 
 	const id = req.payload._id;
 
@@ -22,7 +22,9 @@ router.post("/create-post", (req, res) => {
 	const { _id } = req.payload;
 	const { title, description } = req.body.info;
 
-	console.log(_id, title, description);
+	console.log(req);
+
+	// console.log(_id, title, description);
 
 	Post.create({
 		creator: _id,
